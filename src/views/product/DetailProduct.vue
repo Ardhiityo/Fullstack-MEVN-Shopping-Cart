@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div id="page-wrap" v-if="product">
+    <div v-if="product" id="page-wrap">
       <div id="img-wrap">
         <img :src="product.imageUrl" :alt="product.name">
       </div>

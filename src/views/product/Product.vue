@@ -1,45 +1,31 @@
 <template>
   <div>
-
     <div id="page-wrap">
       <div class="grid-wrap">
-
-        <div v-for="product in products" :key="product.id" class="product-item">
-          <img :src="product.imageUrl" :alt="product.name">
-          <h3 class="product-name">{{ product.name }}</h3>
-          <p>Rp{{ product.price }}</p>
-          <router-link :to="{ name: 'detail', params: { id: product.id } }">
-            <button>Detail</button>
-          </router-link>
-        </div>
-
+        <product-item v-for="product in products" :key="product.id" :product="product" class="product-item" />
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
 
 import { products } from '../../data-seed.js';
+import ProductItem from '../../components/ProductItem.vue';
 
 export default {
   data: function () {
     return {
       products
     }
+  },
+  components: {
+    ProductItem
   }
 }
 </script>
 
 <style scoped>
-.grid-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 16px;
-}
-
 .product-item {
   align-items: center;
   border-radius: 8px;
@@ -52,21 +38,10 @@ export default {
   width: 32%;
 }
 
-.product-name {
-  margin-bottom: 0;
-}
-
-img {
-  height: 200px;
-  width: 200px;
-  border-radius: 5%;
-}
-
-a {
-  width: 100%;
-}
-
-button {
-  width: 100%;
+.grid-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 16px;
 }
 </style>
