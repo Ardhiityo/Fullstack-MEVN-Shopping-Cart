@@ -1,9 +1,9 @@
 <template>
     <div>
-        <img :src="product.imageUrl" :alt="product.name">
+        <img :src="`http://localhost:8000${product.imageUrl}`" :alt="product.name">
         <h3 class="product-name">{{ product.name }}</h3>
         <p>Rp{{ product.price }}</p>
-        <router-link :to="{ name: 'detail', params: { id: product.id } }">
+        <router-link :to="{ name: 'detail', params: { id: product.code } }">
             <button>Detail</button>
         </router-link>
     </div>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    props: ['product']
+    props: ['product'],
 }
 </script>
 
